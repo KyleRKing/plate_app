@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
 
 	def create
-		@user = User.new(params.require(:user).permit(:fname, :lname, :email, :password))
+		@user = User.new(params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation))
 
 		if @user.save
 			redirect_to users_path
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 
-		if @user.update_attributes(parmas.requre(:user).permit(:fname, :lname, :email, :password))
+		if @user.update_attributes(parmas.requre(:user).permit(:fname, :lname, :email, :password, :password_confirmation))
 			redirect_to users_path
 		else
 			render :edit
@@ -37,5 +37,11 @@ class UsersController < ApplicationController
          @user.destroy
          redirect_to users_path
     end
+
+    private
+    def users_params
+    	params.requre(:user).permit(:image,:fname, :lname, :email, :password, :password_confirmation)
+
+
 
 end
