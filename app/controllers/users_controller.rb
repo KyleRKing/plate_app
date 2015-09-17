@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def index
-		@user = User.all
+		@users = User.all
 	end
 
 
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 		@user = User.new(params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation))
 
 		if @user.save
+			session[:user_id] = @user.id.to_s
 			redirect_to users_path
 		else
 			render :new
@@ -45,7 +46,7 @@ class UsersController < ApplicationController
 
     private
     def users_params
-    	params.requre(:user).permit(:image,:fname, :lname, :email, :password, :password_confirmation)
+    	params.require(:user).permit(:image,:fname, :lname, :email, :password, :password_confirmation)
 
     end
 
