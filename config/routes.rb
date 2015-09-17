@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :plates
-  resources :comments
+    resources :comments
   root :to => "welcome#index"
 
   
