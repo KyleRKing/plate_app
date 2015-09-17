@@ -6,10 +6,12 @@ class PlatesController < ApplicationController
 
     def show
         #Find the plate
-        #  # If plate exists, set @plate to existing plate
-        #  # if plate does not exist, redirect_to :create
-        #  #  # create plate 'newPlate' with params[:state_code], params[:plate_number]
-        #  #  # redirect_to(newPlate)
+        @plate = Plate.where({ plate_state: params[:plate][:plate_state], plate_number: params[:plate][:plate_number] }).first
+
+        #  # If plate does not exists, set @plate to a new plate (create)
+        if @plate == nil
+            @plate = Plate.create({plate_state: params[:plate][:plate_state], plate_number: params[:plate][:plate_number] })
+        end
     end
 
 
@@ -19,7 +21,7 @@ class PlatesController < ApplicationController
 
 
     def create
-        @plate = Plate.new(params.require(:plate).permit(:plate_number, :plate_state, :user_id, ))
+        @plate = Plate.new(plate_params)
 
         if @plate.save
             redirect_to plates_path
@@ -37,7 +39,7 @@ class PlatesController < ApplicationController
     def update
          @plate = Plate.find(params[:id])
 
-        if @plate.update_attributes(params.require(:plate).permit(:plate_number, :plate_state, :user_id))
+        if @plate.update_attributes(plate_params)
             redirect_to plates_path
         else
             render :edit
@@ -49,6 +51,11 @@ class PlatesController < ApplicationController
          @plate = Plate.find(params[:id])
          @plate.destroy
          redirect_to plates_path
+    end
+
+    private
+    def plate_params
+        params.require(:plate).permit(:plate_number, :plate_state, :user_id)
     end
 
 end

@@ -1,0 +1,8 @@
+<br />
+<%= @plate.plate_state %></br>
+<%= @plate.plate_number %></br>
+<%= @plate.comments.each do |comment| %>
+	<% comment.body %>
+
+<% end %>
+<br />
