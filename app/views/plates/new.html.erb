@@ -2,10 +2,13 @@
 <h2>Register New Plate by Entering State Code & Plate #</h2>
 
 <%= form_for @plate do |form| %>
-	<%= form.text_field :plate_state, :placeholder => "State Code" %></br>
-	<%= form.text_field :plate_number, :placeholder => "License Plate ID" %></br>
-
-	<%= form.submit %></br></br>
+	<%= form.text_field :plate_state, :placeholder => "State Code" %>
+</br>
+	<%= form.text_field :plate_number, :placeholder => "License Plate ID" %>
+</br>
+	<%= form.submit %>
+</br>
+</br>
 <% end %>
 
 
