@@ -3,7 +3,7 @@ class CreatePlates < ActiveRecord::Migration
     create_table :plates do |t|
       t.string :plate_number
       t.string :plate_state
-      t.references :user, index: true, foreign_key: true
+     
 
       t.timestamps null: false
     end

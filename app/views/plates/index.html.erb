@@ -1,2 +1,10 @@
+<h1>RoaD RageR: </h1>
+<h2>To check for comments please enter State Two Digit Code and Plate #:</h2>
+
+<%= form_for :plate, :url => "/plate/find/" do |form| %>
+	<%= form.text_field :plate_state, :placeholder => "State Code" %></br>
+	<%= form.text_field :plate_number, :placeholder => "License Plate ID" %></br>
+	<%= form.submit %></br></br>
+<% end %>
 
 

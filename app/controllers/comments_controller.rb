@@ -16,7 +16,8 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @Comment = Comment.new(params.require(:comment).permit(:body, :plate_id, :user_id, ))
+        @plate = Plate.find(params[:plate_id])
+        @comment = Comment.new(params.require(:comment).permit(:body, :plate_id, :user_id, ))
 
         if @comment.save
             redirect_to comments_path

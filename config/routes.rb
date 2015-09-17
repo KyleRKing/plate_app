@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
 
   resources :users
-  resources :plates
+  resources :plates do
     resources :comments
+  end
+
+  post "/plate/find" => 'plates#show', as: :plate_show
+
   root :to => "welcome#index"
 
   

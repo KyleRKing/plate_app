@@ -5,7 +5,11 @@ class PlatesController < ApplicationController
     end
 
     def show
-        @plate = Plate.find(params[:id])
+        #Find the plate
+        #  # If plate exists, set @plate to existing plate
+        #  # if plate does not exist, redirect_to :create
+        #  #  # create plate 'newPlate' with params[:state_code], params[:plate_number]
+        #  #  # redirect_to(newPlate)
     end
 
 

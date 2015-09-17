@@ -12,8 +12,8 @@ users = User.create([
 	])
 
 plates = Plate.create([
-	{plate_number: "1XXYYY", plate_state: "CA", user_id: 1},
-	{plate_number: "2XXYYY", plate_state: "CA", user_id: 2}
+	{plate_number: "1XXYYY", plate_state: "CA"},
+	{plate_number: "2XXYYY", plate_state: "CA"}
 	])
 
 comments = Comment.create ([
