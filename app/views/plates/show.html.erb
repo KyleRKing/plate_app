@@ -6,7 +6,7 @@
 <%= @plate.plate_number %></br>
 
 <% @plate.comments.each do |comment| %>
-	<%= comment.body %>
+	<%= comment.body %></hr></hr>
 
 <% end %>
 
@@ -30,9 +30,11 @@ RoaD RageR members must log in to leave a comment:
 View RoaD RageR user comments about other person(s)/plates:
 </br>
 <%= link_to "View Plates", plates_path %>
-
+</br>
+</br>
 
  <% if current_user != nil %>
+ <h3>Make a RoaD RageR comment here:</h3>
  	<%= render 'comments/form' %>
 <% end %>
 

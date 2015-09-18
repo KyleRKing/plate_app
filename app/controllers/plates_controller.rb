@@ -6,7 +6,9 @@ class PlatesController < ApplicationController
 
     def show
         #Find the plate
+        if params[:id]
         @plate = Plate.find( params[:id] )
+        end
         if( @plate == nil )
             @plate = Plate.where({ plate_state: params[:plate][:plate_state], plate_number: params[:plate][:plate_number] }).first
         end

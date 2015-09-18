@@ -1,5 +1,7 @@
 <h1>Log In</h1>
 
+<h3>Please enter your email and password below:</h3>
+
 <%= form_for :login do |f| %>
 
   <div>
@@ -16,4 +18,17 @@
   
 <% end %>
 
+
+</br>
+</br>
+<h5>Check to see if anyone has left you any RoaD RageR messages:<h5></br>
+<%= link_to "View Plates", plates_path %>
+</br>
+</br>
+<h5>Send RoaD RageR messages to other drivers, after a simple sign up!<h5></br>
+<%= link_to "Sign Up Page", new_user_path %>
+</br>
+</br>
 <%= link_to "Log Out", logout_path, method: :delete %>
+
+
