@@ -1,6 +1,6 @@
 
 
-<%= form_for [@plate, @comment] do |form| %>
+<%= form_for [@plate, Comment.new] do |form| %>
 	<%= form.text_field :body %>
 	<%= form.submit %>
 	</br>

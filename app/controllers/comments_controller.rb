@@ -17,11 +17,14 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @plate = Plate.find(params[:plate_id])
-        @comment = Comment.new(params.require(:comment).permit(:body, :plate_id, :user_id, ))
+        @comment = Comment.new({
+            body: comment_params[:body],
+            plate_id: params[:plate_id]
+            })
+
 
         if @comment.save
-            redirect_to comments_path
+            redirect_to plate_path(params[:plate_id])
         else
             render :new
         end
@@ -36,7 +39,7 @@ class CommentsController < ApplicationController
     def update
         @comment = Comment.find(params[:id])
 
-       	if @comment.update_attributes(params.require(:comment).permit(:body, :plate_id, :user_id))
+       	if @comment.update_attributes(comment_params)
             redirect_to wines_path
         else
              render :edit
@@ -49,4 +52,10 @@ class CommentsController < ApplicationController
          @comment.destroy
          redirect_to comments_path
     end
+
+    private
+    def comment_params
+        params.require(:comment).permit( :body )
+    end
+
 end
