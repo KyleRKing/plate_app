@@ -2,13 +2,15 @@
 
 <br />
 
-<%= @plate.plate_state %></br>
-<%= @plate.plate_number %></br>
 
+<h5><%= @plate.plate_state %></h5>
+<h5><%= @plate.plate_number %></h5>
+
+<ul>
 <% @plate.comments.each do |comment| %>
-	<%= comment.body %></hr></hr>
-
+	<li><%= comment.body %></li>
 <% end %>
+</ul>
 
 </br>
 </br>
